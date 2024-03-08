@@ -228,3 +228,80 @@
     transform: rotate(0deg);
   }
 }
+
+/* Books */
+
+.BookH1 {
+  margin-bottom: 1%;
+}
+
+.viewAllBooks__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+
+  & .ViewAllBooks {
+    margin: 0 auto;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      color: gold;
+      transition: 0.3s ease-in-out;
+    }
+  }
+  
+}
+
+.AppBooks {
+  background-color: rgba(29, 26, 26, 0.701);
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.NewBooksWrapper {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.books_showcase {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.book_card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.book_cover {
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+.FullBookLink {
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    color: gold;
+    transition: 0.3s ease-in-out;
+  }
+
+}

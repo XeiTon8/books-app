@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📜 Books Store
+A simple web-application built on NextJS and TypeScript. Renders a list of books to end-user and allows admin to perform CRUD operations on books, as well as update images via Cloudinary. Built this project to learn NextJS and file uploading, and also to master my skills in building CRUD operations.
 
-## Getting Started
+## 🚀 Stack
++ Frontend: NextJS
++ Backend: CrudCrud API
++ Libraries: Axios
++ Additional: Cloudinary, SASS
 
-First, run the development server:
+## Project Showcase
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Welcome page, where last added books are rendered to the user
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Admin dashboard with short info about each book, pseudo-button that sends user to a page of adding a new book and one button that sends user to the page with full info about the book
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Form of adding a new book. User can add info, such as title, description and author, and upload a cover of a book
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Detailed info page (admin view)
 
-## Learn More
+5. Detailed info page (normal user view)
 
-To learn more about Next.js, take a look at the following resources:
+6. Main page of the app  with full list of books
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Screenshots of responsive design:

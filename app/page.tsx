@@ -1,94 +1,49 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+import React from 'react'
+import { generalContext } from '@/context/GlobalContext';
+import { useNavigation } from './hooks/useNavigation';
+
+import { CldImage } from 'next-cloudinary';
+import Image from 'next/image';
+import Link from "next/link";
+
+import styles from "./page.module.scss";
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+  const {isUser, setIsUser, books} = React.useContext(generalContext);
+  const {setBookData} = useNavigation();
+
+  const renderNewBooks = () => {
+    const booksCopy = [...books];
+    console.log(booksCopy);
+    return books.reverse().slice(0, 6).map((book) => {
+      return (
+        <div className={styles.book_card}>
+        <Image src={book.thumbnailUrl} alt="Book cover" width={150} height={200} className={styles.book_cover}/>
+        <span onClick={() => setBookData(book)} className={styles.FullBookLink}>{book.bookTitle}</span>
+        <span>{book.author}</span>
+        <span>${book.price}</span>
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      )
+    })
+  }
+  
+  return (
+    <main>
+      <div className="app__container">
+      <h1 className={styles.BookH1}>Find your book</h1>
+        <div className={styles.AppBooks}>
+          <div className={styles.NewBooksWrapper}> <span className={styles.NewBooks}>New books</span></div> 
+          <div className={styles.books_showcase}>
+            {renderNewBooks()}
+          </div>
+          <div className={styles.viewAllBooks__wrapper}>
+            <span className={styles.ViewAllBooks}>
+              <Link href="/books" onClick={() => setIsUser(!isUser)}>View all books {"->"} </Link>
+            </span>
+          </div>
+        </div>
       </div>
     </main>
   );
