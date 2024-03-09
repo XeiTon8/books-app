@@ -39,6 +39,7 @@ export const BookInfoComponent = () => {
                 bookDescription: res.data.bookDescription,
                 thumbnailUrl: res.data.thumbnailUrl,
                 price: res.data.price,
+                author: res.data.author,
             }) 
 
             // Update books array in state
@@ -48,7 +49,9 @@ export const BookInfoComponent = () => {
                 return {
                     ...book,
                     bookTitle: updatedBook.bookTitle,
-                    bookDescription: updatedBook.bookDescription
+                    bookDescription: updatedBook.bookDescription,
+                    price: updatedBook.price,
+                    author: updatedBook.author,
                 }
             } else {
                 throw new Error("Error happened while updating")
