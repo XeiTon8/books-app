@@ -17,8 +17,9 @@ export const BookInfoComponent = () => {
 
     const [updatedBook, setUpdatedBook] = React.useState<Book>({
         _id: selectedBookData._id,
-        bookTitle: "",
-        bookDescription: "",
+        author: selectedBookData.author,
+        bookTitle: selectedBookData.bookTitle,
+        bookDescription: selectedBookData.bookDescription,
         thumbnailUrl: selectedBookData.thumbnailUrl,
         price: 0,
     })
@@ -104,6 +105,8 @@ export const BookInfoComponent = () => {
                 <div className="book-full-info">
                     <input  type="text" name="bookTitle" id="" value={updatedBook.bookTitle} onChange={handleBookEdit} />
                     <textarea name="bookDescription" id="" value={updatedBook.bookDescription} onChange={handleBookEdit} />
+                    <input  type="number" name="price" id="" value={updatedBook.price!} onChange={handleBookEdit} />
+                    <input  type="text" name="author" id="" value={updatedBook.author} onChange={handleBookEdit} />
                     <button type="submit">Update book</button>
                     <button type="button" onClick={() => setIsEditing(!isEditing)}>Cancel</button>
                 </div>
