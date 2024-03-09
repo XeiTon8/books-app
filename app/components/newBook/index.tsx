@@ -15,6 +15,7 @@ export const AddNewBook = () => {
     const [book, setBook] = React.useState<Book>({
         bookDescription: "",
         bookTitle: "",
+        author: "",
         thumbnailUrl: "",
         price: 0,
     })
@@ -75,7 +76,7 @@ export const AddNewBook = () => {
                     </label>
                     <label htmlFor="">
                         <span>Price, $</span>
-                        <input type="number" name="price" id="" />
+                        <input type="number" name="price" id="" onChange={handleBookOnChange} />
                     </label>
                     <label htmlFor="">
                         <span>Author</span>
